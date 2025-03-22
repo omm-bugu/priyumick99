@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise for Bugu</title>
+    <style>
+        body {
+            background-color: #ffcccb;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            margin-top: 20vh;
+            font-size: 3rem;
+            color: #d63384;
+        }
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatUp 4s linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Surprise, Bugu!❤️</h1>
+    
+    <audio autoplay loop>
+        <source src="your-love-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+    
+    <script>
+        function createEmoji() {
+            const emojiList = ['😍', '😘', '💖', '💘', '🥰', '💓', '💕'];
+            const emoji = document.createElement("div");
+            emoji.className = "emoji";
+            emoji.innerText = emojiList[Math.floor(Math.random() * emojiList.length)];
+            document.body.appendChild(emoji);
+            
+            emoji.style.left = Math.random() * 100 + "vw";
+            emoji.style.top = "100vh";
+            
+            setTimeout(() => emoji.remove(), 4000);
+        }
+        setInterval(createEmoji, 300);
+    </script>
+</body>
+</html>
